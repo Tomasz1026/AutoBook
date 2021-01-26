@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(192, 192, 192);
+    color: #000;
+    padding-top: 15%;
+    
+}
+
+form{
+    text-align: center;
+}
+
+label{
+    display:inline-flex;
+    text-align: left;
+    width: 130px;
+}
+
