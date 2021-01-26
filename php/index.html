@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>AutoBook - Logowanie</title>
+    
+    <link rel="stylesheet" href="../style/style.css">
+    
+    <script src="../js/jquery.js"></script>
+
+</head>
+<body>
+    <header>
+        <img id="logo" src="../img/logo.svg">
+        <span>AutoBook</span>
+    </header>
+    <form action="login.php" method="post">
+        <br>
+        <div id="email_input"> 
+            <label for="email">E-Mail:</label><br>
+            <input type="text" id="email" name="email">
+        </div>
+        <br>
+        <div id="pass_input">
+            <label for="haslo">Hasło:</label><br>
+            <input type="password" id="haslo" name="pass">
+            <img id="eye_svg" src="../img/eye.svg">
+            <br><br>
+        </div>
+        <div id="form_help">
+            <a href="passHelp.php">Nie pamiętam hasła</a>
+        </div>
+        <input type="submit" value="Zaloguj">
+    </form>
+    <footer>
+        <p>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</p>
+    </footer>
+    <script type ="text/javascript" src="../js/script.js"></script>
+</body>
+</html>
