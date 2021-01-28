@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoBook - Logowanie</title>
     
     <link rel="stylesheet" href="../style/style.css">
@@ -15,26 +15,31 @@
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
     </header>
-    <form action="login.php" method="post">
-        <br>
-        <div id="email_input"> 
-            <label for="email">E-Mail:</label><br>
-            <input type="text" id="email" name="email">
-        </div>
-        <br>
-        <div id="pass_input">
-            <label for="haslo">Hasło:</label><br>
-            <input type="password" id="haslo" name="pass">
-            <img id="eye_svg" src="../img/eye.svg">
-            <br><br>
-        </div>
-        <div id="form_help">
-            <a href="passHelp.php">Nie pamiętam hasła</a>
-        </div>
-        <input type="submit" value="Zaloguj">
-    </form>
+    
+    <div id="main">
+        <span id="gradient"></span>
+        <div id="spacing"></div>
+        <form action="login.php" method="post">
+            <br>
+            <div id="email_input"> 
+                <label for="email">E-Mail:</label><br>
+                <input type="text" id="email" name="email">
+            </div>
+            <br>
+            <div id="pass_input">
+                <label for="haslo">Hasło:</label><br>
+                <input type="password" id="haslo" name="pass">
+                <img id="eye_svg" src="../img/eye.svg">
+                <br><br>
+            </div>
+            <div id="form_help">
+                <a href="passHelp.php">Nie pamiętam hasła</a>
+            </div>
+            <input type="submit" value="Zaloguj">
+        </form>
+    </div>
     <footer>
-        <p>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</p>
+        <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
     </footer>
     <script type ="text/javascript" src="../js/script.js"></script>
 </body>
