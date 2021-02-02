@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 26 Sty 2021, 14:23
--- Wersja serwera: 10.4.14-MariaDB
--- Wersja PHP: 7.2.34
+-- Czas generowania: 02 Lut 2021, 13:46
+-- Wersja serwera: 10.4.16-MariaDB
+-- Wersja PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,90 +24,90 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `serwis`
+-- Struktura tabeli dla tabeli `service`
 --
 
-CREATE TABLE `serwis` (
-  `Id_klienta` int(11) NOT NULL,
-  `Marka` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `Model` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
-  `Generacja` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `VIN` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Rejestracja` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `Rok` year(4) NOT NULL,
-  `Data` datetime NOT NULL,
-  `Przebieg` mediumint(9) NOT NULL,
-  `Opis` text COLLATE utf8_unicode_ci NOT NULL
+CREATE TABLE `service` (
+  `client_id` int(11) NOT NULL,
+  `mark` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
+  `model` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
+  `generation` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `vin` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `registration` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `year` year(4) NOT NULL,
+  `date` datetime NOT NULL,
+  `mileage` mediumint(9) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Zrzut danych tabeli `serwis`
+-- Zrzut danych tabeli `service`
 --
 
-INSERT INTO `serwis` (`Id_klienta`, `Marka`, `Model`, `Generacja`, `VIN`, `Rejestracja`, `Rok`, `Data`, `Przebieg`, `Opis`) VALUES
+INSERT INTO `service` (`client_id`, `mark`, `model`, `generation`, `vin`, `registration`, `year`, `date`, `mileage`, `description`) VALUES
 (5, 'Opel', 'Zafira', 'C', 'W0L0AHM75A2096189', 'CBY69JP', 2007, '2021-01-22 00:56:52', 187546, 'wymiana przednich amortyzatorów i zbieżność');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `uzytkownicy`
+-- Struktura tabeli dla tabeli `users`
 --
 
-CREATE TABLE `uzytkownicy` (
-  `ID` int(11) NOT NULL,
-  `Imie` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `Nazwisko` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Haslo` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `Mail` text COLLATE utf8_unicode_ci NOT NULL,
-  `Data_Dolaczenia` datetime NOT NULL,
-  `Ostatnio_Logowany` datetime NOT NULL,
-  `Adres_IP` text COLLATE utf8_unicode_ci NOT NULL,
-  `Rola` enum('k','m') COLLATE utf8_unicode_ci NOT NULL COMMENT 'k - klient\r\nm - mechanik'
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `surname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `email` text COLLATE utf8_unicode_ci NOT NULL,
+  `joining_date` datetime NOT NULL,
+  `last_login_date` datetime NOT NULL,
+  `ip_address` text COLLATE utf8_unicode_ci NOT NULL,
+  `role` enum('k','m') COLLATE utf8_unicode_ci NOT NULL COMMENT 'k - klient\r\nm - mechanik'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Zrzut danych tabeli `uzytkownicy`
+-- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `uzytkownicy` (`ID`, `Imie`, `Nazwisko`, `Haslo`, `Mail`, `Data_Dolaczenia`, `Ostatnio_Logowany`, `Adres_IP`, `Rola`) VALUES
-(5, 'Maciej', 'Tonn', 'maciejciej13', 'tonmaciej@maciejtonn', '2021-01-01 00:28:49', '2021-01-22 00:28:49', '185.10.123.223', 'k'),
-(7, 'Jaca', 'Waca', 'sexkeks21', 'jaca@waca', '2020-08-06 00:30:49', '2021-01-22 00:30:49', '192.123.123.22', 'm');
+INSERT INTO `users` (`id`, `name`, `surname`, `password`, `email`, `joining_date`, `last_login_date`, `ip_address`, `role`) VALUES
+(5, 'Maciej', 'Tonn', 'maciejciej13', 'tonmaciej@maciejtonn.com', '2021-01-01 00:28:49', '2021-01-22 00:28:49', '185.10.123.223', 'k'),
+(7, 'Jaca', 'Waca', 'sexkeks21', 'jaca@waca.pl', '2020-08-06 00:30:49', '2021-01-22 00:30:49', '192.123.123.22', 'm');
 
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indeksy dla tabeli `serwis`
+-- Indeksy dla tabeli `service`
 --
-ALTER TABLE `serwis`
-  ADD PRIMARY KEY (`Id_klienta`);
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`client_id`);
 
 --
--- Indeksy dla tabeli `uzytkownicy`
+-- Indeksy dla tabeli `users`
 --
-ALTER TABLE `uzytkownicy`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
--- AUTO_INCREMENT dla tabeli `uzytkownicy`
+-- AUTO_INCREMENT dla tabeli `users`
 --
-ALTER TABLE `uzytkownicy`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Ograniczenia dla tabeli `serwis`
+-- Ograniczenia dla tabeli `service`
 --
-ALTER TABLE `serwis`
-  ADD CONSTRAINT `serwis_ibfk_1` FOREIGN KEY (`Id_klienta`) REFERENCES `uzytkownicy` (`ID`);
+ALTER TABLE `service`
+  ADD CONSTRAINT `service_users` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
