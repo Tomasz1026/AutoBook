@@ -7,8 +7,3 @@ $("#eye_svg").on('click', () => {
         $("#pass_input input").attr("type", "password");
       }
 })
-
-if($("header::after").height() < $("#main").height())
-{
-  console.log("penis");
-}

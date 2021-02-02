@@ -10,10 +10,10 @@
     {
         echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Desccription' later
     } else {
-        $login = "maciej@tonn.com";//$_POST['login'];
-        $password = "arbuzy123";//$_POST['password'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-        $sql_query = "SELECT * FROM uzytkownicy WHERE email='$login' AND password='$password'";//Create query string
+        $sql_query = "SELECT * FROM users WHERE email='$email' AND password='$password'";//Create query string
 
         if($result = @$connection->query($sql_query)) //Send query to database. If everything goes fine return value true and save data to result variable
         {
@@ -25,20 +25,22 @@
                 
                 $result->close();
                 
-                $_SESSION['login'] = $row['login'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['pass'] = $row['password'];
+                unset($_SESSION['login_error']);//Delete variable from SESSION
                 
+                $_SESSION['user_logged']=true;
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['password'] = $row['password'];
+                //echo $row['name'];
 
-                //header('Location: main.php');
+                header('Location: main.php');//Open page
             } else {
                 //Throw error when login or/and password are wrong or doesn't exist;
-                $_SESSION['login_error'] = "<span style='color: red'>Nieprawidłowe dane logowania</span>";
+                $_SESSION['login_error'] = "<br><span style='color: red; font-size:15px'>Nieprawidłowe dane logowania</span>";
                 header('Location: index.php');
             }
         }
 
         $connection->close();
     }
-
 ?>

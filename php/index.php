@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['user_logged']) && $_SESSION['user_logged']==true)
+    {
+        header("Location: main.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,6 +20,7 @@
 
 </head>
 <body>
+
     <header>
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
@@ -28,11 +38,21 @@
             <br>
             <div id="pass_input">
                 <label for="haslo">Hasło:</label><br>
-                <input type="password" id="haslo" name="pass">
+                <input type="password" id="haslo" name="password">
                 <img id="eye_svg" src="../img/eye.svg">
-                <br><br>
+                <?php 
+                    if(isset($_SESSION['login_error']))
+                    {
+                        echo $_SESSION['login_error'];
+                    }
+                    else{
+                        echo "<br><br>";
+                    }
+                ?>
+                
             </div>
             <div id="form_help">
+                
                 <a href="passHelp.php">Nie pamiętam hasła</a>
             </div>
             <input type="submit" value="Zaloguj">
