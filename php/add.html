@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nazwa pojazdu</title>
+    
+    <link rel="stylesheet" href="../style/add.css">
+    
+    <script src="../js/jquery.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <img id="logo" src="../img/logo.svg">
+        <span>AutoBook</span>
+        <img id="profile" src="../img/profile.svg">
+    </header>
+    <div id="main">
+        <div id="service_list_element">
+            <div id="search_button"><img src="../img/lupa.svg" width="30px"></div>
+            <input type="text" id="search_text">
+            <div id="search_filter">Filtr</div>
+            <div id="service_table">
+                <div id="table_header"><div id="table_header_date">Data</div><div id="table_header_description">Opis</div></div>
+                <div class="row" id="0"><div id="date">26-10-2020</div><div id="description">Wymiana oleju, wymiana klocków hamulcowych, wymiana...</div></div>
+                <div class="row" id="1"><div id="date">10-05-2019</div><div id="description">dddd</div></div>
+                <div class="row" id="2"><div id="date">05-01-2021</div><div id="description">ffff</div></div>
+            </div>
+        </div>
+        <div id="richer_description">
+            <div class="description_button" id="new">Nowy</div>
+            <div class="description_button" id="add">
+                <img src="../img/addSign.svg" height="25px">
+                <div id="list">
+                    <span class="category">
+                        <div class="sub_list">
+                            <span>Spłuczki</span>
+                            <span>Kanalizy</span>
+                            <span>Niczego</span>
+                        </div>
+                        <span>Wymiana</span>
+                    </span>
+                    <span class="category">
+                        <div class="sub_list">
+                            <span>Hamulców</span>
+                            <span>Klocków hamulcowych</span>
+                            <span>Wycieraczek</span>
+                        </div>
+                        <span>Naprawa</span>
+                    </span>
+                    <span>sratatata</span>
+                </div>
+              
+            </div>
+            <textarea></textarea>
+            <div id="passive_textarea">AAAAAAAAAAAAA kurwaaaaaa</div>
+            <div class="description_button" id="edit">Edytuj</div>
+            <div class="description_button" id="save">Zapisz</div>
+        </div>
+    </div>
+    <footer>
+        <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
+    </footer>
+    <script type ="text/javascript" src="../js/script.js"></script>
+</body>
+</html>
