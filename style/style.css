@@ -129,60 +129,23 @@ footer{
     background: black;
     line-height: 40px;
 }
-
-@media only screen and (max-width: 520px){
-    header{
-        font-size: 50px;
-    }
-
-    input:not([type="submit"]){
-        font-size: 16px;
-    }
-
-    form{
-        width: 100%;
-        margin-left: 0;
-        left: 0;
-    }
-
-    footer{
-        height: 25px;
-        font-size: 10px;
-        line-height: 25px;
-    }
-
-    #main{
-        height: calc(100vh - 25px - 120px);
-    }
-}
-
-@media only screen and (max-height: 600px){
-
-    #main{
-        height: 600px;
-    }
-}
-
 .divTable
     {   
         display: block;
-        padding: 10px 25px;
         font-size: 20px;
-        margin-right: 56vh;
         text-align: center;
         margin: auto;    
         display:  table;
         width: auto;
-        
-        border-spacing:5px;/*cellspacing:poor IE support for  this*/
-       /* border-collapse:separate;*/
+        border: 2px solid black;
+
     }
 
 .divRow
 {
-    
-       display:table-row;
-       
+    border-top:2px solid transparent;
+    border-bottom: 2px solid transparent;
+    display:table-row;
 }
 .divhCell
 {
@@ -191,7 +154,8 @@ footer{
     padding: 10px 25px;
     float: left;
     display: table-column;
-    background-color:rgb(144, 144, 144);
+    background-color:rgb(0, 0, 0);
+    color: white;
 }
 
 .divCell
@@ -200,7 +164,15 @@ footer{
     padding: 5px 25px;
     float:left;/*fix for  buggy browsers*/
     display:table-column;
-    background-color:rgb(228, 228, 228);
+}
+.divRow:nth-child(2n)
+{
+    background:rgb(216, 215, 215);
+}
+.divRow :hover{
+    cursor: pointer;
+    border-top:2px solid black;
+    border-bottom: 2px solid black;
 }
 #add{
     margin: auto;
@@ -235,4 +207,40 @@ input[type="button"]{
     border: none;
     padding: 10px 25px;
     font-size: 17px;
+    text-align: center;
+  }
+
+@media only screen and (max-width: 520px){
+    header{
+        font-size: 50px;
+    }
+
+    input:not([type="submit"]){
+        font-size: 16px;
+    }
+
+    form{
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+    }
+
+    footer{
+        height: 25px;
+        font-size: 10px;
+        line-height: 25px;
+    }
+
+    #main{
+        height: calc(100vh - 25px - 120px);
+    }
+}
+
+@media only screen and (max-height: 600px){
+
+    #main{
+        height: 600px;
+    }
+}
+
   }
