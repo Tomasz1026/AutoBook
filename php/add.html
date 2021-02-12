@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!(isset($_SESSION['user_logged']) && $_SESSION['user_logged']==true))
+    {
+        header("Location: index.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,7 +19,6 @@
 
 </head>
 <body>
-
     <header>
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
@@ -23,10 +30,26 @@
             <input type="text" id="search_text">
             <div id="search_filter">Filtr</div>
             <div id="service_table">
-                <div id="table_header"><div id="table_header_date">Data</div><div id="table_header_description">Opis</div></div>
-                <div class="row" id="0"><div id="date">26-10-2020</div><div id="description">Wymiana oleju, wymiana klocków hamulcowych, wymiana...</div></div>
-                <div class="row" id="1"><div id="date">10-05-2019</div><div id="description">dddd</div></div>
-                <div class="row" id="2"><div id="date">05-01-2021</div><div id="description">ffff</div></div>
+                <div id="table_header">
+                    <div id="table_header_date">Data</div>
+                    <div id="table_header_mileage">Przebieg</div>
+                    <div id="table_header_description">Opis</div>
+                </div>
+                <div class="row" id="0">
+                    <div id="date">26-10-2020</div>
+                    <div id="mileage">100 tys.</div>
+                    <div id="description">Wymiana oleju, wymiana klocków hamulc...</div>
+                </div>
+                <div class="row" id="1">
+                    <div id="date">10-05-2019</div>
+                    <div id="mileage">50 tys.</div>
+                    <div id="description">dddd</div>
+                </div>
+                <div class="row" id="2">
+                    <div id="date">05-01-2021</div>
+                    <div id="mileage">300 tys.</div>
+                    <div id="description">ffff</div>
+                </div>
             </div>
         </div>
         <div id="richer_description">
@@ -52,7 +75,14 @@
                     </span>
                     <span>sratatata</span>
                 </div>
-              
+            </div>
+            <div id="table_header">
+                <input type="date" id="date_input">
+                <div id="passive_date">26-10-2020</div>
+                <span>Przebieg</span>
+                <input type="number" id="mileage_input">
+                <div id="passive_mileage">100 tys.</div>
+                <span>km</span>
             </div>
             <textarea></textarea>
             <div id="passive_textarea">AAAAAAAAAAAAA kurwaaaaaa</div>
@@ -63,6 +93,6 @@
     <footer>
         <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
     </footer>
-    <script type ="text/javascript" src="../js/script.js"></script>
+    <script type ="text/javascript" src="../js/add_scripts.js"></script>
 </body>
 </html>
