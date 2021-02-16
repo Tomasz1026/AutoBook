@@ -129,51 +129,7 @@ footer{
     background: black;
     line-height: 40px;
 }
-.divTable
-    {   
-        display: block;
-        font-size: 20px;
-        text-align: center;
-        margin: auto;    
-        display:  table;
-        width: auto;
-        border: 2px solid black;
 
-    }
-
-.divRow
-{
-    border-top:2px solid transparent;
-    border-bottom: 2px solid transparent;
-    display:table-row;
-}
-.divhCell
-{
-    display: block;
-    width: 16vh;
-    padding: 10px 25px;
-    float: left;
-    display: table-column;
-    background-color:rgb(0, 0, 0);
-    color: white;
-}
-
-.divCell
-{
-    width:16vh;
-    padding: 5px 25px;
-    float:left;/*fix for  buggy browsers*/
-    display:table-column;
-}
-.divRow:nth-child(2n)
-{
-    background:rgb(216, 215, 215);
-}
-.divRow :hover{
-    cursor: pointer;
-    border-top:2px solid black;
-    border-bottom: 2px solid black;
-}
 #add{
     margin: auto;
 }
