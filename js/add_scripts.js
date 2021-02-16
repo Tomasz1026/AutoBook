@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+
 /*
     var opisA = "Wymiana oleju, wymiana klocków hamulcowych, wymiana wycieraczek, kręcenie licznika"
     var opisB = "Steven Paul Jobs - jeden z trzech założycieli, były prezes i przewodniczący rady nadzorczej Apple Inc."
@@ -20,7 +20,7 @@ $( document ).ready(function() {
 
     console.log(checkDesc(opisA));
 */
-    
+   
     function numberWithCommas(value, separator) {
         return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator)
     }
@@ -49,7 +49,7 @@ $( document ).ready(function() {
 
     $("#edit").on('click', () => {
         
-        if($("textarea").css("display") == "block") {
+        if($("#passive_textarea").css('display') == 'none') {
             $("#add").hide()
             $("#save").hide()
             
@@ -62,6 +62,7 @@ $( document ).ready(function() {
             $("#passive_textarea").show()
             $("textarea").hide()
         } else {
+            console.log("test")
             $("textarea").val($("#passive_textarea").html())
             $("#passive_textarea").hide()
             $("#richer_description textarea").show()
@@ -84,12 +85,14 @@ $( document ).ready(function() {
     $("#save").on('click', () => {
         
         $("#passive_textarea").html($("textarea").val());
-
+        console.log("penis")
         $("#passive_mileage").html(numberWithCommas(parseInt(mileageConversion($("#mileage_input").val(), 2)), "."))
 
         let date = new Date($("#date_input").val())
 
         $("#passive_date").html(('0' + date.getDate()).slice(-2) +'-'+ ('0' + (date.getMonth()+1)).slice(-2) +'-'+ date.getFullYear());
+
+        
 
         $("#edit").click()
     })
@@ -162,4 +165,4 @@ $( document ).ready(function() {
     window.onbeforeunload = function() {
         return '';
     };*/
-})
+

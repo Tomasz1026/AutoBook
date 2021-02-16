@@ -353,6 +353,7 @@ input[type=date]:focus{
     margin-bottom: 8.5px;
     padding: 10px;
     white-space: pre-line;
+    display: block;
 }
 
 #add, #save {
