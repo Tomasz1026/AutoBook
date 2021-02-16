@@ -5,81 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoBook - Samochody</title>
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/cartable.css">
 </head>
 <body style="background: white;">
     <header>
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
+        <img id="profile" src="../img/profile.svg">
     </header>
     <div id="spacing"></div>
-    </br></br></br>
+    
     
     <div id="main" >
+        <div id="service_list_element">
+            <div class="add_button" id="search_button">Dodaj</div>
+            <div id="search_button"><img src="../img/lupa.svg" width="30px"></div>
+            <input type="text" id="search_text">
+            <div id="search_filter">Filtr</div>
 
-        
-    
-    </br></br>
-    
-    <input type="button" value="Dodaj">
-        <div class="search-container">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Wyszukaj.." name="search">
-              <button type="submit">Szukaj</button>
-            </form>
-        </div></br></br>
-    <div class="divTable">
-        
-        <div class="headRow">
-           <div class="divhCell" >Marka</div>
-           <div  class="divhCell">Model</div>
-           <div  class="divhCell">Generacja</div>
-           <div  class="divhCell">VIN</div>
-           <div  class="divhCell">Rejestracja</div>
+            <div id="service_table">
+                <div id="table_header">
+                    <div id="table_header_make">Marka</div>
+                    <div id="table_header_model">Model</div>
+                    <div id="table_header_gen">Generacja</div>
+                    <div id="table_header_vin">VIN</div>
+                    <div id="table_header_rej">Rejestracja</div>
+                    <div id="table_header_year">Rok</div>
+                </div>
+                <div class="row" id="0">
+                    <div id="make">Toyota</div>
+                    <div id="model">Corolla</div>
+                    <div id="gen">E12</div>
+                    <div id="vin">JTDKZ20E100028606</div>
+                    <div id="rej">CZN95PP</div>
+                    <div id="year">2005</div>
+                </div>
+                <div class="row" id="1">
+                    <div id="make">Audi</div>
+                    <div id="model">A6</div>
+                    <div id="gen">C7</div>
+                    <div id="vin">WAUH2AFC7HN005602</div>
+                    <div id="rej">CB308GK</div>
+                    <div id="year">2012</div>
+                </div>
         </div>
-       <div class="divRow">
-           <div class="divCell">Toyota</div>
-           <div class="divCell">Corolla</div>
-           <div class="divCell">E12</div>
-           <div class="divCell">NMTDRsahgsj2390348</div>
-           <div class="divCell">C0 VID19</div>
-           
-       </div>
-       <div class="divRow">
-           <div class="divCell">xxx</div>
-           <div class="divCell">yyy</div>
-           <div class="divCell">www</div>
-           <div class="divCell">yyy</div>
-           <div class="divCell">www</div>
-      </div>
-       <div class="divRow">
-           <div class="divCell">ttt</div>
-           <div class="divCell">uuu</div>
-           <div class="divCell">Mkkk</div>
-           <div class="divCell">ttt</div>
-           <div class="divCell">uuu</div>
-      </div>
-      <div class="divRow">
-        <div class="divCell">Toyota</div>
-        <div class="divCell">Corolla</div>
-        <div class="divCell">E12</div>
-        <div class="divCell">NMTDRsahgsj2390348</div>
-        <div class="divCell">C0 VID19</div>
-        
-    </div>
-    <div class="divRow">
-        <div class="divCell">Toyota</div>
-        <div class="divCell">Corolla</div>
-        <div class="divCell">E12</div>
-        <div class="divCell">NMTDRsahgsj2390348</div>
-        <div class="divCell">C0 VID19</div>
-        
-    </div>
 
-      </div>
     </div>
-
-<footer>
+</div>
+    <footer>
         <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
     </footer>
 </body>
