@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 19 Lut 2021, 18:22
+-- Czas generowania: 19 Lut 2021, 18:36
 -- Wersja serwera: 10.4.14-MariaDB
 -- Wersja PHP: 7.2.34
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `car` (
+  `id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
   `mark` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
   `model` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
@@ -41,8 +42,8 @@ CREATE TABLE `car` (
 -- Zrzut danych tabeli `car`
 --
 
-INSERT INTO `car` (`client_id`, `mark`, `model`, `generation`, `vin`, `registration`, `year`) VALUES
-(5, 'Opel', 'Zafira', 'C', 'W0L0AHM75A2096189', 'CBY69JP', 2007);
+INSERT INTO `car` (`id`, `client_id`, `mark`, `model`, `generation`, `vin`, `registration`, `year`) VALUES
+(1, 5, 'Opel', 'Zafira', 'C', 'W0L0AHM75A2096189', 'CBY69JP', 2007);
 
 -- --------------------------------------------------------
 
@@ -51,6 +52,7 @@ INSERT INTO `car` (`client_id`, `mark`, `model`, `generation`, `vin`, `registrat
 --
 
 CREATE TABLE `service` (
+  `id` int(11) NOT NULL,
   `vin` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Date` date NOT NULL,
   `Milage` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
@@ -61,8 +63,8 @@ CREATE TABLE `service` (
 -- Zrzut danych tabeli `service`
 --
 
-INSERT INTO `service` (`vin`, `Date`, `Milage`, `Description`) VALUES
-('W0L0AHM75A2096189', '2021-02-18', '168412', 'Wymiana sprzegla oraz klockow hamulcowych tyl.');
+INSERT INTO `service` (`id`, `vin`, `Date`, `Milage`, `Description`) VALUES
+(1, 'W0L0AHM75A2096189', '2021-02-18', '168412', 'Wymiana sprzegla oraz klockow hamulcowych tyl.');
 
 -- --------------------------------------------------------
 
@@ -98,14 +100,16 @@ INSERT INTO `users` (`id`, `name`, `surname`, `password`, `email`, `joining_date
 -- Indeksy dla tabeli `car`
 --
 ALTER TABLE `car`
-  ADD PRIMARY KEY (`client_id`),
-  ADD KEY `service_vin` (`vin`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `service_vin` (`vin`),
+  ADD KEY `client_id` (`client_id`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `service`
 --
 ALTER TABLE `service`
-  ADD PRIMARY KEY (`vin`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `vin` (`vin`) USING BTREE;
 
 --
 -- Indeksy dla tabeli `users`
@@ -116,6 +120,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `car`
+--
+ALTER TABLE `car`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT dla tabeli `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
@@ -133,6 +149,12 @@ ALTER TABLE `users`
 ALTER TABLE `car`
   ADD CONSTRAINT `service_users` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `service_vin` FOREIGN KEY (`vin`) REFERENCES `service` (`vin`);
+
+--
+-- Ograniczenia dla tabeli `service`
+--
+ALTER TABLE `service`
+  ADD CONSTRAINT `vin_to_car` FOREIGN KEY (`vin`) REFERENCES `car` (`vin`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
