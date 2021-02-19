@@ -7,7 +7,6 @@
         header("Location: index.php");
         exit();
     }
-
     
 ?>
 <!DOCTYPE html>
@@ -31,7 +30,7 @@
     <div id="spacing"></div>
     <div id="main" >
         <div id="service_list_element">
-            <div class="add_button" id="search_button">Dodaj</div>
+            <div class="description_button" id="add"><img src="../img/addSign.svg" height="25px"></div>
             <div id="search_button"><img src="../img/lupa.svg" width="30px"></div>
             <input type="text" id="search_text">
             <div id="search_filter">Filtr</div>
