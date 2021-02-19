@@ -3,7 +3,7 @@
 
     if(isset($_SESSION['user_logged']) && $_SESSION['user_logged']==true)
     {
-        header("Location: main.php");
+        header("Location: cartable.php");
         exit();
     }
 ?>

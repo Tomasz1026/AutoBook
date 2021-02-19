@@ -20,12 +20,12 @@
 
     console.log(checkDesc(opisA));
 */
-   
+
     function numberWithCommas(value, separator) {
         return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator)
     }
 
-    function dateConversion(date)
+    function dateConversionISO(date)
     {
         let day = date.slice(0, $("#passive_date").html().search('-'))
         date = date.slice(date.search('-')+1, date.length)
@@ -35,17 +35,31 @@
         return year + "-" + month + "-" + day
     }
 
+    function dateConversionPOL(date)
+    {
+        let datePOL = new Date(date)
+
+        return ('0' + datePOL.getDate()).slice(-2) +'-'+ ('0' + (datePOL.getMonth()+1)).slice(-2) +'-'+ datePOL.getFullYear();
+    }
+
     function mileageConversion(mileage, howManyTimes)
     { 
 
         for(let i=0;i<howManyTimes;i++)
         {
             mileage = mileage.replace(".", '')
-            //console.log(mileage)
-            //console.log(mileage.search("."))
         }
+
         return parseInt(mileage)
     }
+
+    $(".row").on("click", function() {
+        
+        $("#passive_date").html($( this ).find("#date").html())
+        $("#passive_mileage").html($( this ).find("#mileage").html())
+        $("#passive_textarea").html($( this ).find("#description").html())
+
+    })
 
     $("#edit").on('click', () => {
         
@@ -62,7 +76,6 @@
             $("#passive_textarea").show()
             $("textarea").hide()
         } else {
-            console.log("test")
             $("textarea").val($("#passive_textarea").html())
             $("#passive_textarea").hide()
             $("#richer_description textarea").show()
@@ -72,7 +85,7 @@
             
             $("#mileage_input").val(mileageConversion($("#passive_mileage").html(), 2))
 
-            $("#date_input").val(dateConversion($("#passive_date").html()))
+            $("#date_input").val(dateConversionISO($("#passive_date").html()))
 
             $("#passive_date").hide()
             $("#passive_mileage").hide()
@@ -85,26 +98,20 @@
     $("#save").on('click', () => {
         
         $("#passive_textarea").html($("textarea").val());
-        console.log("penis")
+
         $("#passive_mileage").html(numberWithCommas(parseInt(mileageConversion($("#mileage_input").val(), 2)), "."))
 
-        let date = new Date($("#date_input").val())
-
-        $("#passive_date").html(('0' + date.getDate()).slice(-2) +'-'+ ('0' + (date.getMonth()+1)).slice(-2) +'-'+ date.getFullYear());
-
-        
+        $("#passive_date").html(dateConversionPOL($("#date_input").val()));
 
         $("#edit").click()
     })
 
-    
 
     $(".category").mouseenter( function() {
 
         $(this).find(">:first-child").css("left", $(this).parent().innerWidth())
         $(this).find(">:first-child").show()
         
-        console.log($(this).outerWidth())
 
     }).mouseleave( function() {
     
@@ -126,40 +133,29 @@
         
         if(parentTree.attr("class") == "sub_list")
         {
-        let categoriesHtml = [$(this).html()]
-        //let kaka = 0
-        //console.log(niba);
-        let arrayId = 1
-        do{
-            //console.log(kaka)
-            
-            
-            parentTree = parentTree.parent()
+            let categoriesHtml = [$(this).html()]
+            let arrayId = 1
 
-            idOfParent = parentTree.attr('id')
+            do {
+                parentTree = parentTree.parent()
 
-            if(parentTree.attr("class") == "category")
-            {
-                categoriesHtml[arrayId] = parentTree.find("span:last").html()
-                //console.log(niba);
-                //console.log(nigger);
+                idOfParent = parentTree.attr('id')
+
+                if(parentTree.attr("class") == "category")
+                {
+                    categoriesHtml[arrayId] = parentTree.find("span:last").html()
                     arrayId++
+                }
+
+            } while(parentTree.attr('id') != "list")
+                
+            for(let i=arrayId-1;i>=0;i--)
+            {
+                $("textarea").val($("textarea").val() + categoriesHtml[i] + " ")
             }
-            
-            //kaka++
-            
-            
-            
 
-        }while(parentTree.attr('id') != "list")
-            
-        for(let i=arrayId-1;i>=0;i--)
-        {
-            $("textarea").val($("textarea").val() + categoriesHtml[i] + " ")
+            $("textarea").val($("textarea").val()+"\n")
         }
-
-        $("textarea").val($("textarea").val()+"\n")
-    }
     })
 /*
     window.onbeforeunload = function() {

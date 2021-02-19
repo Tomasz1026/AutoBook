@@ -8,14 +8,14 @@
 
     if($connection->connect_errno!=0)//connect error id: 0 - everything fine, >0 - something went wrong
     {
-        echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Desccription' later
+        echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Description' later
     } else {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $sql_query = "SELECT * FROM users WHERE email='$email' AND password='$password'";//Create query string
+        $sql_query_login = "SELECT * FROM users WHERE email='$email' AND password='$password'";//Create query string
 
-        if($result = @$connection->query($sql_query)) //Send query to database. If everything goes fine return value true and save data to result variable
+        if($result = @$connection->query($sql_query_login)) //Send query to database. If everything goes fine return value true and save data to result variable
         {
             $num_of_usr = $result->num_rows;//Number of rows = number of user in this case
 
@@ -32,8 +32,9 @@
                 $_SESSION['name'] = $row['name'];
                 $_SESSION['password'] = $row['password'];
                 //echo $row['name'];
+                $_SESSION['id'] = $row['id'];
 
-                header('Location: main.php');//Open page
+                header('Location: cartable.php');//Open page
             } else {
                 //Throw error when login or/and password are wrong or doesn't exist;
                 $_SESSION['login_error'] = "<br><span style='color: red; font-size:15px'>Nieprawidłowe dane logowania</span>";
