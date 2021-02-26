@@ -52,9 +52,9 @@
                     {
                         echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Desccription' later
                     } else {
-                        $vin = $_SESSION['vin'];
+                        $car_id = $_SESSION['car_id'];
 
-                        $sql_query_cars = "SELECT * FROM service WHERE vin='$vin'"; //Create query string
+                        $sql_query_cars = "SELECT * FROM service WHERE car_id='$car_id'"; //Create query string
                         
                         if($result = @$connection->query($sql_query_cars)) //Send query to database. If everything goes fine return value true and save data to result variable
                         {

@@ -1,8 +1,9 @@
 $(".row").on("click", function() {
-    
-    $("form").find("input[name='vin']").val($( this ).find("#vin").html()) 
+    if($(this).find("#make").length) {
+        $("form").find("input[name='car_id']").val($( this ).attr('id')) 
 
-    $("form").find("input[type='submit']").click()
+        $("form").find("input[type='submit']").click()
+    }
 })
 
 $(".profile").mouseenter(function() {

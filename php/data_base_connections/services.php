@@ -1,11 +1,11 @@
 <?php 
     
-    if(isset($_POST['vin']))
+    if(isset($_POST['car_id']))
     {
         session_start();
 
 
-        $_SESSION['vin'] = $_POST["vin"];
+        $_SESSION['car_id'] = $_POST["car_id"];
     
         header('Location: ../add.php');
     } else {

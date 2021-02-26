@@ -25,15 +25,13 @@
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
         <img class="profile" id="profile_image" src="../img/profile.svg" >
-            
-        
     </header>
     <span class="profile" id="list">
-                        <div><span>Mój profil</span></div>
-                        <div><span>Podsumowanie</span></div>
-                        <div><span>Ustawienia</span></div>
-                        <div onclick="location.href = 'data_base_connections/logout.php';"><span style="color: red;">Wyloguj</span></div>
-                </span>
+        <div><span>Mój profil</span></div>
+        <div><span>Podsumowanie</span></div>
+        <div><span>Ustawienia</span></div>
+        <div onclick="location.href = 'data_base_connections/logout.php';"><span style="color: red;">Wyloguj</span></div>
+    </span>
     <div id="spacing"></div>
     <div id="main" >
         <div id="service_list_element">
@@ -68,7 +66,7 @@
                             {
                                 while($row = $result->fetch_assoc())
                                 {
-                                    echo "<div class='row'><div id='make'>".$row['mark']."</div><div id='model'>".$row['model']."</div><div id='gen'>".$row['generation']."</div><div id='vin'>".$row['vin']."</div><div id='reg'>".$row['registration']."</div><div id='year'>".$row['year']."</div></div>";
+                                    echo "<div class='row' id=".$row['id']."><div id='make'>".$row['mark']."</div><div id='model'>".$row['model']."</div><div id='gen'>".$row['generation']."</div><div id='vin'>".$row['vin']."</div><div id='reg'>".$row['registration']."</div><div id='year'>".$row['year']."</div></div>";
                                 }
                                         
                                 $result->close();
@@ -89,7 +87,7 @@
         <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
     </footer>
     <form action="data_base_connections/services.php" method="post" id="hidden_form">
-    <input type="text" name="vin">
+    <input type="number" name="car_id">
     <input type="submit">
     </form>
     <script src="../js/cartable_script.js"></script>
