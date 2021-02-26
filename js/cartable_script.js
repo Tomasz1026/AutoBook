@@ -4,3 +4,14 @@ $(".row").on("click", function() {
 
     $("form").find("input[type='submit']").click()
 })
+
+$(".profile").mouseenter(function() {
+    $("#list").show()
+}).mouseleave(function() {
+    
+    $("#list").hide()
+})
+
+/*$("#list").mouseleave(function() {
+    $("#list").hide()
+})*/

@@ -3,7 +3,7 @@
 
     $_SESSION['user_logged'] = false;
 
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 
 ?>

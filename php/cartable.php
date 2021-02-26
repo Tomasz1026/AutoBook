@@ -1,5 +1,5 @@
 <?php
-    require_once "conn.php";
+    require_once "data_base_connections/conn.php";
 
     session_start();
     if(!(isset($_SESSION['user_logged']) && $_SESSION['user_logged']==true))
@@ -7,7 +7,6 @@
         header("Location: index.php");
         exit();
     }
-    
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -25,12 +24,20 @@
     <header>
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
-        <img id="profile" src="../img/profile.svg" onclick="location.href = 'logout.php';">
+        <img class="profile" id="profile_image" src="../img/profile.svg" >
+            
+        
     </header>
+    <span class="profile" id="list">
+                        <div><span>Mój profil</span></div>
+                        <div><span>Podsumowanie</span></div>
+                        <div><span>Ustawienia</span></div>
+                        <div onclick="location.href = 'data_base_connections/logout.php';"><span style="color: red;">Wyloguj</span></div>
+                </span>
     <div id="spacing"></div>
     <div id="main" >
         <div id="service_list_element">
-            <div class="description_button" id="add"><img src="../img/addSign.svg" height="25px"></div>
+            <div class="description_button" id="add">Nowy</div>
             <div id="search_button"><img src="../img/lupa.svg" width="30px"></div>
             <input type="text" id="search_text">
             <div id="search_filter">Filtr</div>
@@ -51,7 +58,7 @@
                         echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Desccription' later
                     } else {
                         $id = $_SESSION['id'];
-                        $sql_query_cars = "SELECT * FROM service WHERE client_id=$id"; //Create query string
+                        $sql_query_cars = "SELECT * FROM car WHERE client_id=$id"; //Create query string
 
                         if($result = @$connection->query($sql_query_cars)) //Send query to database. If everything goes fine return value true and save data to result variable
                         {
@@ -61,7 +68,7 @@
                             {
                                 while($row = $result->fetch_assoc())
                                 {
-                                    echo "<div class='row'><div id='make'>".$row['mark']."</div><div id='model'>".$row['model']."</div><div id='gen'>".$row['generation']."</div><div id='vin'>".$row['vin']."</div><div id='rej'>".$row['registration']."</div><div id='year'>".$row['year']."</div></div>";
+                                    echo "<div class='row'><div id='make'>".$row['mark']."</div><div id='model'>".$row['model']."</div><div id='gen'>".$row['generation']."</div><div id='vin'>".$row['vin']."</div><div id='reg'>".$row['registration']."</div><div id='year'>".$row['year']."</div></div>";
                                 }
                                         
                                 $result->close();
@@ -73,9 +80,7 @@
                             }
                         }
                         $connection->close();
-                        
                     }      
-                    
                 ?>
         </div>
     </div>
@@ -83,7 +88,7 @@
     <footer>
         <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
     </footer>
-    <form action="services.php" method="post" id="hidden_form">
+    <form action="data_base_connections/services.php" method="post" id="hidden_form">
     <input type="text" name="vin">
     <input type="submit">
     </form>

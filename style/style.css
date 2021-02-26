@@ -30,11 +30,29 @@ header {
     background-color: black;
     color:white;
     font-size: 70px;
-    display: flex;
     line-height: 115px;
+    overflow:auto;
+}
+
+header span {
+    float: left;
+}
+
+#register {
+    float: right;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 2%;
+}
+
+#register:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 #logo {
+    float: left;
     height: 100px;
     margin-bottom: 10px;
     margin-right: 15px;
@@ -51,6 +69,7 @@ form {
 }
 
 #main{
+    clear: both;
     width: 100%;
     height: calc(100vh - 40px - 120px);
 }
@@ -71,7 +90,6 @@ input:focus{
 
 input:not([type="submit"]){
     border: none;
-    border-bottom: 1px solid black;
     width: 170px;
 }
 
@@ -115,6 +133,12 @@ input[type="submit"]:hover{
 
 #eye_svg{
     height: 20px;
+    width: 20px;
+    background-image: url("../img/eye.svg");
+    /*content: " ";*/
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-size: cover;
 }
 
 #eye_svg:hover{
@@ -151,7 +175,7 @@ input[type="button"]{
     padding: 10px 25px;
   }
   
-  input[type=text] {
+  input[type=text], input[type=password] {
     font-size: 20px;
     border: none;
     
@@ -166,7 +190,7 @@ input[type="button"]{
     text-align: center;
   }
 
-@media only screen and (max-width: 520px){
+@media only screen and (max-width: 600px){
     header{
         font-size: 50px;
     }
@@ -189,6 +213,16 @@ input[type="button"]{
 
     #main{
         height: calc(100vh - 25px - 120px);
+    }
+
+    #register {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    #register { 
+        margin-right: 5%;
     }
 }
 

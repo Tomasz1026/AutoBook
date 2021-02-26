@@ -24,13 +24,12 @@
     <header>
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
-        <a id="register" href="register.php">Zarejestruj się</a>
     </header>
     
     <div id="main">
         <span id="gradient"></span>
         <div id="spacing"></div>
-        <form action="data_base_connections/login.php" method="post">
+        <form action="login.php" method="post">
             <br>
             <div id="email_input"> 
                 <label for="email">E-Mail:</label><br>
@@ -50,10 +49,11 @@
                         echo "<br><br>";
                     }
                 ?>
+                
             </div>
             <div id="form_help">
                 
-                <a href="data_base_connections/passHelp.php">Nie pamiętam hasła</a>
+                <a href="passHelp.php">Nie pamiętam hasła</a>
             </div>
             <input type="submit" value="Zaloguj">
         </form>
