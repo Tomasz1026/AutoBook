@@ -19,15 +19,17 @@
     <script src="../js/jquery.js"></script>
 
 </head>
-<body>
+<body >
 
-    <header>
-        <img id="logo" src="../img/logo.svg">
+    <header >
+        
+        <img  id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
         <a id="register" href="register.php">Zarejestruj się</a>
+        
     </header>
     
-    <div id="main">
+    <div id="main" >
         <span id="gradient"></span>
         <div id="spacing"></div>
         <form action="data_base_connections/login.php" method="post">
