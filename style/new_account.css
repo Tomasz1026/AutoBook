@@ -1,0 +1,245 @@
+@font-face{
+    font-family: Mukata;
+    src: url("../img/Mukta-Medium.ttf");
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Mukata;
+    background-image: url("../img/car_beach_.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: 50%;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+
+#gradient{
+    width: 100%;
+    height: inherit;
+    background: black;
+    opacity: 0.5;
+    position: absolute;
+    z-index: -1;
+}
+
+header {
+    width: 100%;
+    background-color: black;
+    color:white;
+    font-size: 70px;
+    line-height: 115px;
+    overflow:auto;
+    
+            
+}
+
+header span {
+    float: left;
+    
+}
+
+#register {
+    float: right;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 2%;
+ 
+}
+
+#register:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#logo {
+    float: left;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+    
+}
+
+form {
+    width: 400px;
+    height: 500px;
+    background:white;
+    margin: auto;
+    box-shadow: 0 .5rem 1rem -.25rem rgba(0,0,0,0.7);
+}
+
+#main{
+    clear: both;
+    width: 100%;
+    height: calc(100vh - 40px - 120px);
+}
+
+#spacing{
+    height: 20%;
+}
+
+[id$="_input"]{
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+input:not([type="submit"]){
+    border: none;
+    width: 170px;
+}
+
+input:not([type="submit"]):hover{
+    border-bottom: 2px solid black;
+}
+
+input:not([type="submit"]):focus{
+    border-bottom: 2px solid black;
+    background:rgb(230, 230, 230);
+}
+
+input[type="submit"]{
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 20px;
+    float: right;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+#form_help{
+    margin-top: 35px;
+    float: left;
+    padding-left: 50px;
+}
+
+#form_help a{
+    text-decoration: none;
+    color: black;
+}
+
+#form_help a:hover{
+    text-decoration: underline;
+}
+
+#eye_svg{
+    height: 20px;
+    width: 20px;
+    background-image: url("../img/eye.svg");
+    /*content: " ";*/
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+#eye_svg:hover{
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    color: white;
+    background: black;
+    line-height: 40px;
+}
+
+#add{
+    margin: auto;
+}
+input[type="button"]{
+    margin: auto;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 20px;
+    float: right;
+    
+}
+.search-container form {
+    margin: auto;
+    height: 26px;
+    width: auto;
+    float: right;
+    padding: 10px 25px;
+  }
+  
+  input[type=text], input[type=password] {
+    font-size: 20px;
+    border: none;
+    
+  }
+  
+  .search-container button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 17px;
+    text-align: center;
+  }
+
+@media only screen and (max-width: 600px){
+    header{
+        font-size: 50px;
+    }
+
+    input:not([type="submit"]){
+        font-size: 16px;
+    }
+
+    form{
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+    }
+
+    footer{
+        height: 25px;
+        font-size: 10px;
+        line-height: 25px;
+    }
+
+    #main{
+        height: calc(100vh - 25px - 120px);
+    }
+
+    #register {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    #register { 
+        margin-right: 5%;
+    }
+}
+
+@media only screen and (max-height: 600px){
+
+    #main{
+        height: 600px;
+    }
+}
