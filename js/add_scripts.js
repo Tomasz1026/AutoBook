@@ -4,6 +4,7 @@
     //var opisB = "Steven Paul Jobs - jeden z trzech założycieli, były prezes i przewodniczący rady nadzorczej Apple Inc."
     //var opisC = "Steven Paul Jobs - jeden z trzech założycieli, były prezes i przewodniczący rady nadzorczej Apple Inc."
 
+
     function checkDesc(description, size) {
         if(description.length > size) {
             let newdesc = "";
@@ -50,6 +51,13 @@
         return parseInt(mileage)
     }
 
+    function serviceTableClick() {
+        $("#id").val($( this ).attr("id"))
+        $("#passive_date").html($( this ).find("#date").html())
+        $("#passive_mileage").html($( this ).find("#mileage").html())
+        $("#passive_textarea").html($( this ).find("#description").html())
+    }
+
     $("#logo").on("click", function() {
         window.location.href = "cartable.php";
     })
@@ -61,33 +69,32 @@
         $("#profile_list").hide()
     })
 
-    $(".row").each( function(i) {
+
+    $("#service_list_element").load("test.php", function() {
+        $(".row").each( function(i) {
         
-        $(this).find("#mileage").html(numberWithCommas($(this).find("#mileage").html(), "."))
+            $(this).find("#mileage").html(numberWithCommas($(this).find("#mileage").html(), "."))
+    
+            $(this).find("#short_desc").html(checkDesc($(this).find("#description").html(), 38))
+    
+            if(i === 0) {
+                $("#id").val($( this ).attr("id"))
+                $("#passive_date").html($( this ).find("#date").html())
+                $("#passive_mileage").html($( this ).find("#mileage").html())
+                $("#passive_textarea").html($( this ).find("#description").html())
+                //console.log( $("#id").val())
+            }
+        })
 
-        $(this).find("#short_desc").html(checkDesc($(this).find("#description").html(), 38))
-
-        if(i === 0) {
-            $("#id").val($( this ).attr("id"))
-            $("#passive_date").html($( this ).find("#date").html())
-            $("#passive_mileage").html($( this ).find("#mileage").html())
-            $("#passive_textarea").html($( this ).find("#description").html())
-            //console.log( $("#id").val())
-        }
-    })
-
-    $(".row").on("click", function() {
-
-        $("#id").val($( this ).attr("id"))
-        $("#passive_date").html($( this ).find("#date").html())
-        $("#passive_mileage").html($( this ).find("#mileage").html())
-        $("#passive_textarea").html($( this ).find("#description").html())
-
+        $(".row").on("click", serviceTableClick)
     })
 
     $("#edit").on('click', () => {
+       // $("#service_list_element").load("test.php") //do testow
         
         if($("#passive_textarea").css('display') == 'none') {
+            $(".row").on("click", serviceTableClick)
+            
             $("#add").hide()
             $("#save").hide()
             
@@ -100,6 +107,7 @@
             $("#passive_textarea").show()
             $("textarea").hide()
         } else {
+            $(".row").off("click")
             $("textarea").val($("#passive_textarea").html())
             $("#passive_textarea").hide()
             $("#richer_description textarea").show()
@@ -121,7 +129,14 @@
 
     $("#save").on('click', () => {
         
-       $("#submit_form").click()
+
+        if($("#mileage_input").val() < 0 || $("#mileage_input").val().length == 0){
+            alert("niba")
+        } else {
+            $("#submit_form").click()
+        }
+
+       
         //window.location.href = "../update_services.php";
         
         //$("#passive_textarea").html($("textarea").val());
