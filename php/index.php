@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['user_logged']) && $_SESSION['user_logged']==true)
+    if(isset($_SESSION['user_logged']))
     {
         header("Location: cartable.php");
         exit();
@@ -23,7 +23,7 @@
 
     <header >
         
-        <img  id="logo" src="../img/logo.svg">
+        <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
         <a id="register" href="register.php">Zarejestruj się</a>
         

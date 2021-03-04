@@ -21,13 +21,11 @@ if(isset($_POST['date']) && isset($_POST['mileage']) && isset($_POST['descriptio
 
         if(@$connection->query($sql_query_login)) //Send update query to database. If everything goes fine return value true
         {
-            
-            $_SESSION['data_base_update'] = "";//Show smoe sort of alert "Aktualizacja bazy danych zakończyła się sukcesem"
+            $_SESSION['data_base_update'] = "";//Show some sort of alert "Aktualizacja bazy danych zakończyła się sukcesem"
             
         } else {
             
             $_SESSION['data_base_update'] = "<br><span style='color: red; font-size:15px'>Nieprawidłowe dane logowania</span>";
-            
             //Show smoe sort of alert "Aktualizacja bazy danych zakończyła się byciem smutną i zjebaną bazą danych, ja jebie jak można być bazą danych, ja tego nie rozumiem >:("
         }
         
