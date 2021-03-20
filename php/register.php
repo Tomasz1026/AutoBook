@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoBook - Logowanie</title>
     
-    <link rel="stylesheet" href="../style/new_account_1.css">
+    <link rel="stylesheet" href="../style/new_account.css">
     
     <script src="../js/jquery.js"></script>
 </head>
@@ -50,13 +50,13 @@
                 <label for="haslo">Hasło:</label>
                 <br>
                 <input type="password" id="haslo" name="password">
-                <img id="eye_svg" src="../img/eye.svg">
+                <img class="eye_svg" src="../img/eye.svg">
             </div>
             <div id="pass_input">
                 <label for="phaslo">Powtórz hasło:</label>
                 <br>
                 <input type="password" id="phaslo" name="password1">
-                <img id="eye_svg" src="../img/eye.svg">
+                <img class="eye_svg" src="../img/eye.svg">
             </div>
             <div id="form_help">
                 <a href="passHelp.php">Pomoc</a>

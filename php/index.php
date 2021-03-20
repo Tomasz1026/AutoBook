@@ -37,7 +37,7 @@
             <div id="pass_input">
                 <label for="haslo">Hasło:</label><br>
                 <input type="password" id="haslo" name="password">
-                <img id="eye_svg" src="../img/eye.svg">
+                <img class="eye_svg" src="../img/eye.svg">
                 <?php 
                     if(isset($_SESSION['login_error']))
                     {
