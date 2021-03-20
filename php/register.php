@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoBook - Logowanie</title>
     
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/new_account_1.css">
     
     <script src="../js/jquery.js"></script>
 </head>
@@ -22,37 +22,47 @@
     <header>
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
-        <a id="register" href="register.php">Zarejestruj się</a>
     </header>
-    <div id="main" >
+    <div id="main">
         <span id="gradient"></span>
         <div id="spacing"></div>
-        <form action="data_base_connections/login.php" method="post">
+        <form action="login.php" method="post">
+            <br>
+            <div id="name_input"> 
+                <label for="imie">Imię</label>
+                <br>
+                <input type="text" id="imie" name="name">
+            </div>
+            <br>
+            <div id="surname_input"> 
+                <label for="nazwisko">Nazwisko</label>
+                <br>
+                <input type="text" id="nazwisko" name="surname">
+            </div>
             <br>
             <div id="email_input"> 
-                <label for="email">E-Mail:</label><br>
+                <label for="email">E-Mail:</label>
+                <br>
                 <input type="text" id="email" name="email">
             </div>
             <br>
             <div id="pass_input">
-                <label for="haslo">Hasło:</label><br>
+                <label for="haslo">Hasło:</label>
+                <br>
                 <input type="password" id="haslo" name="password">
                 <img id="eye_svg" src="../img/eye.svg">
-                <?php 
-                    if(isset($_SESSION['login_error']))
-                    {
-                        echo $_SESSION['login_error'];
-                    }
-                    else{
-                        echo "<br><br>";
-                    }
-                ?>
+            </div>
+            <div id="pass_input">
+                <label for="phaslo">Powtórz hasło:</label>
+                <br>
+                <input type="password" id="phaslo" name="password1">
+                <img id="eye_svg" src="../img/eye.svg">
             </div>
             <div id="form_help">
-                
-                <a href="data_base_connections/passHelp.php">Nie pamiętam hasła</a>
+                <a href="passHelp.php">Pomoc</a>
             </div>
-            <input type="submit" value="Zaloguj">
+            <br>
+            <input type="submit" value="Zarejestruj">
         </form>
     </div>
     <footer>
