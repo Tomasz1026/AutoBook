@@ -37,7 +37,7 @@ header {
     font-size: 70px;
     line-height: 115px;
     overflow:auto;
-    
+
             
 }
 
@@ -45,6 +45,7 @@ header span {
     float: left;
     
 }
+
 
 #register {
     float: right;
@@ -61,13 +62,18 @@ header span {
 }
 
 #logo {
+    background-position: 50%;
     float: left;
-    height: 100px;
+    background-image: url("../img/logo.svg");
+    background-attachment: initial;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
     margin-right: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 20px;
-    
 }
 
 form {
@@ -227,6 +233,11 @@ input[type="button"]{
 
     #register {
         font-size: 18px;
+    }
+    #logo{
+        margin-top: 25px;
+        height: 60px;
+        width: 60px;
     }
 }
 
