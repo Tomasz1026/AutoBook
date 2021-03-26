@@ -142,17 +142,13 @@ input[type="submit"]:hover{
     text-decoration: underline;
 }
 
-#eye_svg{
+.eye_svg{
     height: 20px;
     width: 20px;
     background-image: url("../img/eye.svg");
-    /*content: " ";*/
-    background-attachment: fixed;
-    background-repeat: no-repeat; 
-    background-size: cover;
 }
 
-#eye_svg:hover{
+.eye_svg:hover{
     cursor: pointer;
 }
 
@@ -168,6 +164,7 @@ footer{
 #add{
     margin: auto;
 }
+
 input[type="button"]{
     margin: auto;
     background: black;
@@ -178,6 +175,7 @@ input[type="button"]{
     float: right;
     
 }
+
 .search-container form {
     margin: auto;
     height: 26px;
@@ -191,15 +189,7 @@ input[type="button"]{
     border: none;
     
   }
-  
-  .search-container button {
-    background: black;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 17px;
-    text-align: center;
-  }
+
 
 @media only screen and (max-width: 600px){
     header{

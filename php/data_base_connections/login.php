@@ -28,12 +28,11 @@
                     
                     unset($_SESSION['login_error']);//Delete variable from SESSION
                     
-                    $_SESSION['user_logged']=true;
+                    $_SESSION['user_logged'] = true;
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['password'] = $row['password'];
                     $_SESSION['menu'] = $row['preference'];
-                    //echo $row['name'];
                     $_SESSION['id'] = $row['id'];
 
                     header('Location: ../cartable.php');//Open page

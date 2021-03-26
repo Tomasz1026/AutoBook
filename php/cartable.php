@@ -2,10 +2,12 @@
     require_once "data_base_connections/conn.php";
 
     session_start();
-    if(!(isset($_SESSION['user_logged']) && $_SESSION['user_logged']==true))
+    if(!isset($_SESSION['user_logged']))
     {
         header("Location: index.php");
         exit();
+    } else if(isset($_SESSION['car_id'])) {
+        unset($_SESSION['car_id']);
     }
 ?>
 <!DOCTYPE html>
@@ -14,11 +16,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoBook - Samochody</title>
     <link rel="stylesheet" href="../style/cartable.css">
-
     <script src="../js/jquery.js"></script>
-
+    <title>AutoBook - Samochody</title>
 </head>
 <body style="background: white;">
     <header>
@@ -55,8 +55,8 @@
                     {
                         echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Desccription' later
                     } else {
-                        $id = $_SESSION['id'];
-                        $sql_query_cars = "SELECT * FROM car WHERE client_id=$id"; //Create query string
+                        $user_id = $_SESSION['id'];
+                        $sql_query_cars = "SELECT * FROM car WHERE client_id=$user_id"; //Create query string
 
                         if($result = @$connection->query($sql_query_cars)) //Send query to database. If everything goes fine return value true and save data to result variable
                         {

@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['user_logged']))
+    {
+        header("Location: cartable.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,7 +20,7 @@
 </head>
 <body>
     <header>
-        <div id="logo"></div>
+        <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
     </header>
     <div id="main">
@@ -20,34 +29,39 @@
         <form action="login.php" method="post">
             <br>
             <div id="name_input"> 
-                <label for="imie">Imię</label><br>
+                <label for="imie">Imię</label>
+                <br>
                 <input type="text" id="imie" name="name">
             </div>
             <br>
             <div id="surname_input"> 
-                <label for="nazwisko">Nazwisko</label> <br>
+                <label for="nazwisko">Nazwisko</label>
+                <br>
                 <input type="text" id="nazwisko" name="surname">
             </div>
             <br>
             <div id="email_input"> 
-                <label for="email">E-Mail:</label><br>
+                <label for="email">E-Mail:</label>
+                <br>
                 <input type="text" id="email" name="email">
             </div>
             <br>
             <div id="pass_input">
-                <label for="haslo">Hasło:</label><br>
+                <label for="haslo">Hasło:</label>
+                <br>
                 <input type="password" id="haslo" name="password">
-                <img class="eye_svg" alt="eye" src="../img/eye.svg">
+                <img class="eye_svg" src="../img/eye.svg">
             </div>
             <div id="pass_input">
-                <label for="phaslo">Powtórz hasło:</label><br>
+                <label for="phaslo">Powtórz hasło:</label>
+                <br>
                 <input type="password" id="phaslo" name="password1">
-                <img class="eye_svg" alt="eye" src="../img/eye.svg">
+                <img class="eye_svg" src="../img/eye.svg">
             </div>
             <div id="form_help">
-                
                 <a href="passHelp.php">Pomoc</a>
-            </div><br>
+            </div>
+            <br>
             <input type="submit" value="Zarejestruj">
         </form>
     </div>

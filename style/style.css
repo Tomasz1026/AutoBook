@@ -8,10 +8,10 @@ body {
     margin: 0;
     font-family: Mukata;
     background-image: url("../img/car_beach_.jpg");
-    background-attachment: fixed;
     background-repeat: no-repeat; 
     background-size: cover;
     background-position: 50%;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     user-select: none;
@@ -21,7 +21,7 @@ body {
    -ms-user-select: none;
 }
 
-#gradient{
+#gradient {
     width: 100%;
     height: inherit;
     background: black;
@@ -37,13 +37,10 @@ header {
     font-size: 70px;
     line-height: 115px;
     overflow:auto;
-
-            
 }
 
 header span {
     float: left;
-    
 }
 
 
@@ -53,7 +50,6 @@ header span {
     font-size: 20px;
     text-decoration: none;
     margin-right: 2%;
- 
 }
 
 #register:hover {
@@ -84,37 +80,39 @@ form {
     box-shadow: 0 .5rem 1rem -.25rem rgba(0,0,0,0.7);
 }
 
-#main{
+#main {
     clear: both;
     width: 100%;
     height: calc(100vh - 40px - 120px);
 }
 
-#spacing{
+#spacing {
     height: 30%;
 }
 
-[id$="_input"]{
+[id$="_input"] {
     margin-left: 50px;
     font-size: 18px;
 }
 
-input:focus{
+input {
+    border: none;
+}
+
+input:focus {
     border: none;
     outline: none;
 }
 
-input:not([type="submit"]){
-    border: none;
+input:not([type="submit"]) {
     width: 170px;
+    border-bottom: 2px solid black;
+    font-size: 15px;
 }
 
-input:not([type="submit"]):hover{
-    border-bottom: 2px solid black;
-}
 
-input:not([type="submit"]):focus{
-    border-bottom: 2px solid black;
+input:not([type="submit"]):focus {
+    
     background:rgb(230, 230, 230);
 }
 
@@ -147,17 +145,13 @@ input[type="submit"]:hover{
     text-decoration: underline;
 }
 
-#eye_svg{
+.eye_svg{
     height: 20px;
     width: 20px;
     background-image: url("../img/eye.svg");
-    /*content: " ";*/
-    background-attachment: fixed;
-    background-repeat: no-repeat; 
-    background-size: cover;
 }
 
-#eye_svg:hover{
+.eye_svg:hover{
     cursor: pointer;
 }
 
@@ -173,6 +167,7 @@ footer{
 #add{
     margin: auto;
 }
+
 input[type="button"]{
     margin: auto;
     background: black;
@@ -181,58 +176,46 @@ input[type="button"]{
     padding: 10px 25px;
     font-size: 20px;
     float: right;
-    
 }
-.search-container form {
-    margin: auto;
-    height: 26px;
-    width: auto;
-    float: right;
-    padding: 10px 25px;
-  }
-  
-  input[type=text], input[type=password] {
-    font-size: 20px;
-    border: none;
-    
-  }
-  
-  .search-container button {
-    background: black;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 17px;
-    text-align: center;
-  }
 
-@media only screen and (max-width: 600px){
-    header{
-        font-size: 50px;
+@media only screen and (max-width: 600px) {
+    header {
+        font-size: 30px;
+        line-height: 30px;;
+    }
+
+    header span {
+        margin-top: 25px;
     }
 
     input:not([type="submit"]){
         font-size: 16px;
     }
 
-    form{
+    form {
         width: 100%;
         margin-left: 0;
         left: 0;
     }
 
-    footer{
+    footer {
         height: 25px;
         font-size: 10px;
         line-height: 25px;
     }
 
-    #main{
-        height: calc(100vh - 25px - 120px);
+    #main {
+        height: calc(100vh  - 105px);
+    }
+
+    #logo {
+        height: 60px;
+        margin-top: 10px;
     }
 
     #register {
-        font-size: 18px;
+        margin-top: 25px;
+        font-size: 15px;
     }
     #logo{
         margin-top: 25px;
@@ -241,15 +224,15 @@ input[type="button"]{
     }
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1200px) {
     #register { 
         margin-right: 5%;
     }
 }
 
-@media only screen and (max-height: 600px){
+@media only screen and (max-height: 600px) {
 
-    #main{
+    #main {
         height: 600px;
     }
 }

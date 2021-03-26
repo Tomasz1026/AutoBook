@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['user_logged']) && $_SESSION['user_logged']==true)
+    if(isset($_SESSION['user_logged']))
     {
         header("Location: cartable.php");
         exit();
@@ -17,18 +17,13 @@
     <link rel="stylesheet" href="../style/style.css">
     
     <script src="../js/jquery.js"></script>
-
 </head>
-<body >
-
-    <header >
-        
-        <img  id="logo" src="../img/logo.svg">
+<body>
+    <header>
+        <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
         <a id="register" href="register.php">Zarejestruj się</a>
-        
     </header>
-    
     <div id="main" >
         <span id="gradient"></span>
         <div id="spacing"></div>
@@ -42,7 +37,7 @@
             <div id="pass_input">
                 <label for="haslo">Hasło:</label><br>
                 <input type="password" id="haslo" name="password">
-                <img id="eye_svg" src="../img/eye.svg">
+                <img class="eye_svg" src="../img/eye.svg">
                 <?php 
                     if(isset($_SESSION['login_error']))
                     {
