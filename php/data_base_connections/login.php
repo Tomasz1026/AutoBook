@@ -14,9 +14,15 @@
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $sql_query_login = "SELECT * FROM users WHERE email='$email' AND password='$password'";//Create query string
+            $email = htmlentities($email, ENT_QUOTES, "UTF-8");
+            $password = htmlentities($password, ENT_QUOTES, "UTF-8");
 
-            if($result = @$connection->query($sql_query_login)) //Send query to database. If everything goes fine return value true and save data to result variable
+            //$sql_query_login = "SELECT * FROM users WHERE email='$email' AND password='$password'";//Create query string
+
+            if($result = @$connection->query(
+                sprintf("SELECT * FROM users WHERE email='%s' AND password='%s'",
+                mysqli_real_escape_string($connection, $email),
+                mysqli_real_escape_string($connection, $password))))//Send query to database. If everything goes fine return value true and save data to result variable
             {
                 $num_of_usr = $result->num_rows;//Number of rows = number of user in this case
 
@@ -24,18 +30,21 @@
                 {
                     $row = $result->fetch_assoc();
                     
-                    $result->close();
+                    $result->free_result();
                     
                     unset($_SESSION['login_error']);//Delete variable from SESSION
                     
                     $_SESSION['user_logged'] = true;
-                    $_SESSION['email'] = $row['email'];
                     $_SESSION['name'] = $row['name'];
-                    $_SESSION['password'] = $row['password'];
                     $_SESSION['menu'] = $row['preference'];
                     $_SESSION['id'] = $row['id'];
+                    //$id = $row['id'];
+                    
+                   // $_SESSION['cartable_query'] = "SELECT * FROM car WHERE client_id=$id LIMIT 10 OFFSET 0";
+                    
+                    
 
-                    header('Location: ../cartable.php');//Open page
+                    header('Location: ../cartable.php?error=1');//Open page
                 } else {
                     //Throw error when login or/and password are wrong or doesn't exist;
                     $_SESSION['login_error'] = "<br><span style='color: red; font-size:15px'>Nieprawidłowe dane logowania</span>";

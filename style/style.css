@@ -35,20 +35,22 @@ header {
     background-color: black;
     color:white;
     font-size: 70px;
-    line-height: 115px;
-    overflow:auto;     
+    overflow:auto;
+    display: flex;
+    align-items: center;
 }
 
 header span {
     float: left;
+    
 }
 
 #register {
-    float: right;
     color: white;
     font-size: 20px;
     text-decoration: none;
     margin-right: 2%;
+    margin-left: auto;
 }
 
 #register:hover {
@@ -173,12 +175,11 @@ input[type="button"]{
 
 @media only screen and (max-width: 600px) {
     header {
-        font-size: 30px;
-        line-height: 30px;;
+        
     }
 
     header span {
-        margin-top: 25px;
+        font-size: 50px;
     }
 
     input:not([type="submit"]){
@@ -203,12 +204,13 @@ input[type="button"]{
 
     #logo {
         height: 60px;
-        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 5px;
     }
 
     #register {
-        margin-top: 25px;
-        font-size: 15px;
+        
+        font-size: 18px;
     }
 }
 

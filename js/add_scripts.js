@@ -16,6 +16,8 @@
 
             newdesc+="...";
             return newdesc;
+        } else {
+            return description;
         }
     }
 
@@ -41,8 +43,7 @@
     }
 
     function mileageConversion(mileage, howManyTimes)
-    { 
-
+    {
         for(let i=0;i<howManyTimes;i++)
         {
             mileage = mileage.replace(".", '')
@@ -69,25 +70,22 @@
         $("#profile_list").hide()
     })
 
-
-    $("#service_list_element").load("test.php", function() {
-        $(".row").each( function(i) {
+    $(".row").each( function(i) {
         
-            $(this).find("#mileage").html(numberWithCommas($(this).find("#mileage").html(), "."))
-    
-            $(this).find("#short_desc").html(checkDesc($(this).find("#description").html(), 38))
-    
-            if(i === 0) {
-                $("#id").val($( this ).attr("id"))
-                $("#passive_date").html($( this ).find("#date").html())
-                $("#passive_mileage").html($( this ).find("#mileage").html())
-                $("#passive_textarea").html($( this ).find("#description").html())
-                //console.log( $("#id").val())
-            }
-        })
+        $(this).find("#mileage").html(numberWithCommas($(this).find("#mileage").html(), "."))
 
-        $(".row").on("click", serviceTableClick)
+        $(this).find("#short_desc").html(checkDesc($(this).find("#description").html(), 38))
+
+        if(i === 0) {
+            $("#id").val($( this ).attr("id"))
+            $("#passive_date").html($( this ).find("#date").html())
+            $("#passive_mileage").html($( this ).find("#mileage").html())
+            $("#passive_textarea").html($( this ).find("#description").html())
+            //console.log( $("#id").val())
+        }
     })
+
+    $(".row").on("click", serviceTableClick)
 
     $("#edit").on('click', () => {
        // $("#service_list_element").load("test.php") //do testow
