@@ -35,10 +35,9 @@ header {
     background-color: black;
     color:white;
     font-size: 70px;
-    line-height: 115px;
     overflow:auto;
-    
-            
+    display: flex;
+    align-items: center;
 }
 
 header span {
@@ -47,12 +46,11 @@ header span {
 }
 
 #register {
-    float: right;
     color: white;
     font-size: 20px;
     text-decoration: none;
     margin-right: 2%;
- 
+    margin-left: auto;
 }
 
 #register:hover {
@@ -192,7 +190,7 @@ input[type="button"]{
 
 
 @media only screen and (max-width: 600px){
-    header{
+    header span{
         font-size: 50px;
     }
 
@@ -214,6 +212,12 @@ input[type="button"]{
 
     #main{
         height: calc(100vh - 25px - 120px);
+    }
+
+    #logo {
+        height: 60px;
+        margin-left: 10px;
+        margin-right: 5px;
     }
 
     #register {

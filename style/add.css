@@ -303,7 +303,7 @@ input[type=date]:focus{
     list-style-type: none;
     color: black;
     font-size: 18px;
-    border: 2px solid black ;
+    border: 2px solid black;
     text-align: center;
     display: none;
     /*float: right;*/

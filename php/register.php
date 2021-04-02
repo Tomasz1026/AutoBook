@@ -22,6 +22,7 @@
     <header>
         <img id="logo" src="../img/logo.svg">
         <span>AutoBook</span>
+        <a id="register" href="index.php">Zaloguj</a>
     </header>
     <div id="main">
         <span id="gradient"></span>

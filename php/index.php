@@ -31,20 +31,17 @@
             <br>
             <div id="email_input"> 
                 <label for="email">E-Mail:</label><br>
-                <input type="text" id="email" name="email">
+                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email" name="email" required>
             </div>
             <br>
             <div id="pass_input">
                 <label for="haslo">Hasło:</label><br>
-                <input type="password" id="haslo" name="password">
+                <input type="password" id="haslo" name="password" required>
                 <img class="eye_svg" src="../img/eye.svg">
-                <?php 
+                <?php
                     if(isset($_SESSION['login_error']))
                     {
                         echo $_SESSION['login_error'];
-                    }
-                    else{
-                        echo "<br><br>";
                     }
                 ?>
             </div>
@@ -55,6 +52,11 @@
             <input type="submit" value="Zaloguj">
         </form>
     </div>
+    <?php 
+        /*echo '<pre>';
+            var_dump($_SESSION);
+        echo '</pre>';*/
+    ?>
     <footer>
         <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
     </footer>
