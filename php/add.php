@@ -49,7 +49,7 @@
                      echo $_SESSION['menu']; //quick add-text to description menu
                 ?>
             </div>
-            <div id="table_header">
+            <div id="table_header_2">
                 <input name="date" type="date" id="date_input">
                 <div id="passive_date"></div>
                 <span>Przebieg</span>
