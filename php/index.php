@@ -31,7 +31,7 @@
             <br>
             <div id="email_input"> 
                 <label for="email">E-Mail:</label><br>
-                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email" name="email" required>
+                <input type="email" id="email" name="email" required>
             </div>
             <br>
             <div id="pass_input">
