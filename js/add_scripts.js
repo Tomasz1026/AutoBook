@@ -60,7 +60,7 @@
     }
 
     $("#logo").on("click", function() {
-        window.location.href = "cartable.php";
+        window.location.href = localStorage.getItem("URL");
     })
 
     $("[id^='profile_']").mouseenter(function() {

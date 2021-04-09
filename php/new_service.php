@@ -86,6 +86,12 @@
     <footer>
         <span>Tomasz Kaczmarek & Aleksander Słojewski 2021 &copy;</span>
     </footer>
+    <?php
+        if(isset($_SESSION['error_alert'])) {
+            echo '<script>$("script").last().before("<div id=error_alert><div><span onclick='."$('#error_alert').remove();".'>&times;</span><p>'.$_SESSION['error_alert'].'</p></div></div>")</script>';
+            unset($_SESSION['error_alert']);
+        }
+    ?>
     <script src="../js/new_service_script.js"></script>
 </body>
 </html>

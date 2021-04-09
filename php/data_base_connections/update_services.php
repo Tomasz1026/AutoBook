@@ -10,7 +10,8 @@ if(isset($_POST['date']) && isset($_POST['mileage']) && isset($_POST['descriptio
 
     if($connection->connect_errno!=0)//connect error id: 0 - everything fine, >0 - something went wrong
     {
-        echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Description' later
+        $_SESSION['error_alert'] = "Błąd ID ".$connection->connect_errno." Opis: ".$connection->connect_error;
+        //echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Description' later
     } else {
         $date = $_POST['date'];
         $mileage = $_POST['mileage'];
