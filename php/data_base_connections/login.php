@@ -7,9 +7,11 @@
 
         $connection = new mysqli($host, $db_user, $db_pass, $db_name);//Connection with database. Need data from conn.php
 
-        if($connection->connect_errno!=0)//connect error id: 0 - everything fine, >0 - something went wrong
+        if(@$connection->connect_errno!=0)//connect error id: 0 - everything fine, >0 - something went wrong
         {
-            echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Description' later
+            //echo "ERROR: ".$connection->connect_errno." Description: ".$connection->connect_error;//Show error number in browser. Disable 'Description' later
+            $_SESSION['error_alert'] = "Błąd ID ".$connection->connect_errno." Opis: ".$connection->connect_error;
+            header('Location: ../index.php');
         } else {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -40,11 +42,11 @@
                     $_SESSION['id'] = $row['id'];
                     //$id = $row['id'];
                     
-                   // $_SESSION['cartable_query'] = "SELECT * FROM car WHERE client_id=$id LIMIT 10 OFFSET 0";
+                    //$_SESSION['cartable_query'] = "SELECT * FROM car WHERE client_id=$id LIMIT 10 OFFSET 0";
                     
                     
 
-                    header('Location: ../cartable.php?error=1');//Open page
+                    header('Location: ../cartable.php?page=1&sort_by=last&sort_type=DESC');//Open page
                 } else {
                     //Throw error when login or/and password are wrong or doesn't exist;
                     $_SESSION['login_error'] = "<br><span style='color: red; font-size:15px'>Nieprawidłowe dane logowania</span>";
