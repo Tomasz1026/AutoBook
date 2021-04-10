@@ -90,7 +90,7 @@ header {
 
 #main {
     width: 100%;
-    height: calc(100vh - 40px - 70px);
+    height: calc(100vh - 40px - 84px);
 }
 
 footer {
@@ -251,21 +251,6 @@ input::-webkit-inner-spin-button {
     appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
-/*
-#page_count input{
-    font-size: 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-    background: none;
-    border: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-#page_count input:hover {
-    background:rgb(230, 230, 230);
-    cursor: pointer;
-}*/
 
 #table_header {
     background: black;
