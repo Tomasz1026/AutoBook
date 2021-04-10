@@ -232,7 +232,7 @@
                 echo '<input type="checkbox" name="sort_by" value='.$_GET['sort_by'].' checked>';
                 echo '<input type="checkbox" name="sort_type" value='.$_GET['sort_type'].' checked>';
             
-                echo '<input type="checkbox" name="filter" value='.$new_array.' checked>';
+                echo '<input type="checkbox" name="filter" value="'.$new_array.'" checked>';
                 echo '<input type="submit">';
             }
             ?>
