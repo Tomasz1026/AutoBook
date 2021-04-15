@@ -78,6 +78,7 @@ header {
 }
 
 #list span {
+    float: left;
     display: block;
     text-align: center;
     padding: 5px 5px 5px 5px;
@@ -272,6 +273,15 @@ footer {
 #hidden_form {
     display: none;
 }
+@media only screen and (max-width: 1040px){
+    #service_list_element {
+        padding: 2px;
+        width: 99%;
+        margin: auto;
+        float: left;
+    }
+
+}
 
 @media only screen and (max-width: 520px) {
    
@@ -293,7 +303,7 @@ footer {
         height: 22px;
         color: white;
         line-height: 22px;
-        font-size: 15px;
+        font-size: 13px;
         padding-left: 0px;
     }
     .row {
@@ -302,7 +312,13 @@ footer {
         border-bottom: 2px solid transparent;
         line-height: 24px;
         padding-left: 0px;
-        font-size: 14px;
+        font-size: 15px;
+    }
+    #vin {
+        font-size: 12px;
+    }
+    #rej, #year {
+        font-size: 13px;
     }
     #search_filter, #add {
         margin: 2px;
