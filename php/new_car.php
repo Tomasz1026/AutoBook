@@ -1,17 +1,21 @@
 <?php
- require_once "data_base_connections/conn.php";
+require_once "data_base_connections/conn.php";
 
-    session_start();
-    if(!isset($_SESSION['user_logged']))
+   session_start();
+   if(!isset($_SESSION['user_logged']))
+   {
+       header("Location: index.php");
+       exit();
+
+   }
+   if(isset($_SESSION['car_id']))
     {
-        header("Location: index.php");
+        header("Location: cartable.php");
         exit();
-
-    } else if(!isset($_SESSION['car_id'])) {
-        header("Location: new_car.php");
-        exit();
-    }
+    } 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -39,9 +43,51 @@
         </div>
     </span>
     <div id="main">
-        <div id="service_list_element">
+    <div id="service_list_elementt">
+        <form id="select_car" action="data_base_connections/new_car.php" method="post">
+            <div class="cancel_button" id="cancel">Anuluj</div><br><br>
+            <div id="select_car">
+            <label for="mark">Marka </label><br>
+            <select name="mark"> 
+            <option>Audi</option>
+            <option >Lexus</option>
+            <option >Mercedes</option>
+            <option >Toyota</option>
+            <option >Mitsubishi</option>
+            </select></br>
+            <label for="model">Model </label><br>
+            <select name="model"> 
+            <option>A4</option>
+            <option >LS500</option>
+            <option >Klasa C</option>
+            <option >Yaris</option>
+            <option >Lancer</option>
+            </select></br>
+            <label for="gen">Generacja </label><br>
+            <select name="gen"> 
+            <option>B8</option>
+            <option >II</option>
+            <option >W204</option>
+            <option >II</option>
+            <option >VIII</option>
+            </select></br>
+            <label for="vin">VIN </label><br>
+            <input type="text" name="vin"></br>
+            <label for="rej">Rejestracja </label><br>
+            <input type="text" name="rej"></br>
+            <label for="year">Rok </label><br>
+            <select name="year"> 
+            <option>2015</option>
+            <option >2006</option>
+            <option >2008</option>
+            <option >2007</option>
+            <option >2010</option>
+            </select></br>
+            <input type="submit" value="Dodaj">
+           
+        </form>
         </div>
-        <form id="richer_description" action="data_base_connections/update_services.php" method="post">
+        <form id="richer_descriptionn" action="data_base_connections/update_services.php" method="post">
             <div class="description_button" id="new">Nowy</div>
             <div class="description_button" id="add">
                 <img src="../img/addSign.svg" height="25px">
@@ -59,7 +105,6 @@
             </div>
             <textarea name="description"></textarea>
             <div id="passive_textarea"></div>
-            <div class="description_button" id="edit">Edytuj</div>
             <div class="description_button" id="save">Zapisz</div>
             <input id="id" name="id" style="display: none;">
             <input id="submit_form" style="display: none;" type="submit">

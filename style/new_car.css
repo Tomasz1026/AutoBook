@@ -67,7 +67,7 @@ footer{
     line-height: 40px;
 }
 
-#service_list_element{
+#service_list_elementt{
     height: 554px;
     width: 40%;
     margin-top: 80px;
@@ -147,7 +147,7 @@ label{
     padding-left: 30px;
     clear: both;
 }
-#richer_description {
+#richer_descriptionn {
     width: 35%;
     height: 644px;
     float: right;
@@ -217,7 +217,7 @@ input[type=date]:focus{
     display: none;
 }
 
-#richer_description textarea {
+#richer_descriptionn textarea {
     clear: both;
     border: 2px solid black;
     width: 35%;
@@ -229,7 +229,7 @@ input[type=date]:focus{
    
 }
 
-#richer_description textarea:focus {
+#richer_descriptionn textarea:focus {
     /*border: 2px solid black;
     border-style: solid;*/
     outline: none;
@@ -364,7 +364,7 @@ input[type=date]:focus{
     display: none;
 }
 @media only screen and (max-width: 1040px){
-    #service_list_element {
+    #service_list_elementt {
         padding: 2px;
         width: 99%;
         margin: auto;
@@ -404,13 +404,13 @@ input[type=date]:focus{
         font-size: 15px;
         padding-left: 0px;
     }  
-    #service_list_element {
+    #service_list_elementt {
         padding: 2px;
         width: 99%;
         margin: auto;
         float: left;
     }
-    #richer_description {
+    #richer_descriptionn {
         height: auto;
         padding: 2px;
         width: 99%;

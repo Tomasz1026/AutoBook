@@ -35,7 +35,7 @@
     <div id="spacing"></div>
     <div id="main" >
         <div id="service_list_element">
-            <div class="description_button" id="add">Nowy</div>
+            <div class="description_button" id="add" onclick="location.href = 'new_car.php';">Nowy</div>
             <div id="search_button"><img src="../img/lupa.svg" width="30px"></div>
             <input type="text" id="search_text">
             <div id="search_filter">Filtr</div>

@@ -88,10 +88,6 @@ form {
     height: 20%;
 }
 
-[id$="_input"]{
-    margin-left: 50px;
-    font-size: 18px;
-}
 
 input:focus{
     border: none;
@@ -204,7 +200,10 @@ input[type="button"]{
         width: 100%;
         margin-left: 0;
         left: 0;
+        text-align: center;
     }
+
+    
 
     footer{
         height: 25px;
